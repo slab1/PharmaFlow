@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #0d9488;
+  --primary-dark: #0f766e;
+  --danger: #dc2626;
+  --warning: #f59e0b;
+  --success: #22c55e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: #f8fafc;
+  color: #1e293b;
+  overscroll-behavior-y: none;
+}
+
+#root {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+.touch-manipulation {
+  touch-action: manipulation;
+}
+
+@media (max-width: 768px) {
+  .mobile-full-width {
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+    border-radius: 0;
+  }
+  
+  .mobile-card {
+    padding: 0.75rem;
+  }
+  
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+  
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .table-mobile {
+    display: block;
+  }
+  
+  .table-mobile thead {
+    display: none;
+  }
+  
+  .table-mobile tbody {
+    display: block;
+  }
+  
+  .table-mobile tr {
+    display: block;
+    margin-bottom: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    background: white;
+  }
+  
+  .table-mobile td {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  
+  .table-mobile td:last-child {
+    border-bottom: none;
+  }
+  
+  .table-mobile td::before {
+    content: attr(data-label);
+    font-weight: 500;
+    color: #64748b;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .hover\:bg-slate-50:hover {
+    background: transparent;
+  }
+  
+  .hover\:text-teal-600:hover {
+    color: inherit;
+  }
+  
+  .hover\:bg-teal-700:hover {
+    background: inherit;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-out;
+}

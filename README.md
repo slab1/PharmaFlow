@@ -1,73 +1,119 @@
-# React + TypeScript + Vite
+# PharmaFlow - Pharmacy Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Offline-first pharmacy management system designed for small-town and semi-urban pharmacies in Nigeria.
 
-Currently, two official plugins are available:
+## Problem
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- 85% of retail and 90% of wholesale pharmaceutical transactions in Nigeria occur outside traditional pharmacy channels
+- Small-town pharmacies cannot track inventory and often sell expired stock unknowingly
+- Informal supply chain creates safety and business risks
 
-## React Compiler
+## Solution
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+PharmaFlow is a lightweight, offline-first pharmacy management system that enables:
+- Inventory tracking with batch-level management
+- Expiry alert system to prevent expired drug sales
+- Supplier ordering workflow
+- Point-of-sale with receipts
+- Sales reports and analytics
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Inventory Management
+- Product catalog with categories
+- Batch-level stock tracking
+- Expiry status (OK/Warning/Critical/Expired)
+- Low stock alerts
+- Stock adjustments with audit trail
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Purchase Orders
+- Supplier directory
+- Create purchase orders
+- Order status tracking (Draft → Sent → Confirmed → Received)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Point of Sale
+- Quick product lookup
+- Cart management
+- Receipt generation
+- Payment methods (Cash, Transfer, POS, Credit)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Reports
+- Sales reports (daily, weekly, monthly)
+- Inventory valuation
+- Expiry tracking
+- CSV export
+
+### Offline-First
+- Works without internet
+- Local database (IndexedDB)
+- PWA installable
+
+## Tech Stack
+
+- React 19 + TypeScript
+- Vite
+- TailwindCSS
+- Dexie (IndexedDB)
+- PWA
+
+## Getting Started
+
+### Prerequisites
+- Node.js 18+
+
+### Installation
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+### Production Build
+
+```bash
+npm run build
+```
+
+### Preview
+
+```bash
+npm run preview
+```
+
+## Deployment
+
+### Netlify (Drag & Drop)
+1. Go to https://netlify.com/drop
+2. Drag the `dist/` folder
+3. Get your URL instantly
+
+### Vercel
+
+```bash
+npm i -g vercel
+vercel --prod
+```
+
+### Cloudflare Pages
+
+```bash
+wrangler pages deploy dist
+```
+
+## Pricing Model
+
+- **Pharmacy Subscription**: ₦3,000–₦8,000/month
+- **Wholesaler Commission**: 1-2% on orders
+
+## License
+
+MIT
+
+## Author
+
+PharmaFlow - Pharmacy Management for Nigeria
